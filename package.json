@@ -1,0 +1,45 @@
+{
+    "name": "gulpstart",
+    "version": "1.0.0",
+    "description": "",
+    "repository": {
+        "type": "",
+        "url": ""
+    },
+    "author": "Glukharev Vladlen",
+    "bugs": {
+        "url": ""
+    },
+    "homepage": "",
+    "devDependencies": {
+        "browser-sync": "^2.26.7",
+        "del": "^5.1.0",
+        "foundation-sites": "^6.6.3",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-cli": "^2.2.0",
+        "gulp-file-include": "^2.2.2",
+        "gulp-group-css-media-queries": "^1.2.2",
+        "gulp-imagemin": "^7.1.0",
+        "gulp-load-plugins": "^2.0.3",
+        "gulp-rename": "^2.0.0",
+        "gulp-rigger": "^0.5.8",
+        "gulp-sass": "^4.1.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-uglify": "^3.0.2",
+        "gulp-uglify-es": "^2.0.0",
+        "gulp-uncss": "^1.0.6",
+        "gulp-watch": "^5.0.1",
+        "imagemin-pngquant": "^8.0.0",
+        "jquery": "^3.5.1",
+        "weflow-imagemin": "0.0.3"
+    },
+    "dependencies": {
+        "gulp-concat": "*",
+        "gulp-jshint": "*",
+        "magnific-popup": "^1.1.0",
+        "node-sass": "^4.14.1"
+    },
+    "optionalDependencies": {}
+}
