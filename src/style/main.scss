@@ -65,11 +65,16 @@ body {
     }
 
     .row {
-        max-width: 1522px;
+        max-width: 1542px;
         width: 100%;
         margin: auto;
         display: flex;
         flex-flow: row wrap;
+        padding: 0 10px;
+
+        @include respond-to($large) {
+           max-width: 700px ;
+        }
     }
 
 
@@ -235,6 +240,17 @@ input {
     align-items: center;
     transform: translateX(100%);
     transition: transform .3s;
+    min-width: 700px;
+    @include respond-to($large) {
+        min-width: 600px;
+        height: 100px;
+    }
+    @include respond-to($medium) {
+        left: 0;
+        min-width: 0;
+        width: 100%;
+        height: 75px;
+    }
 
     &.fixed {
         transform: translateX(0);
@@ -246,6 +262,18 @@ input {
         color: #1e1e1e;
         margin-left: 77px;
         margin-right: 30px;
+        @include respond-to($large) {
+            margin-left: 30px;
+            margin-right: 20px;
+            font-size: 26px;
+        }
+        @include respond-to($tablet) {
+            font-size: 18px;
+        }
+        @include respond-to($tiny) {
+            margin-left: 15px;
+            margin-right: 10px;
+        }
     }
 
     .btn-phone {
@@ -261,7 +289,17 @@ input {
         display: flex;
         align-items: center;
         transition: color .3s;
-
+        @include respond-to($large) {
+            font-size: 26px;
+        }
+        @include respond-to($tablet) {
+            font-size: 18px;
+            height: auto;
+            padding: 6px 15px;
+        }
+        @include respond-to($tiny) {
+            padding: 6px 5px;
+        }
         &:hover {
             color: darken(#b7292b , 10%);
         }
@@ -279,6 +317,18 @@ input {
     position: relative;
     display: flex;
     overflow: hidden;
+    @include respond-to($large) {
+        height: 980px;
+        //min-height: 100vh;
+    }
+    @include respond-to($medium) {
+        padding-bottom: 336px;
+        padding-top: 100px;
+        height: auto;
+    }
+    @include respond-to($tablet) {
+        padding-bottom: 308px;
+    }
 
     &:before {
         content: '';
@@ -292,6 +342,13 @@ input {
         left: 0;
         right: 0;
         bottom: 0;
+        @include respond-to($medium) {
+            height: 336px;
+            top: initial;
+            -webkit-background-size: 620px;
+            background-size: 620px;
+        }
+
     }
 
     &-bg {
@@ -299,6 +356,13 @@ input {
         bottom: 0;
         right: -168px;
         z-index: 0;
+        @include respond-to($large) {
+            max-width: 500px;
+        }
+        @include respond-to($medium) {
+
+        }
+
     }
 
     .row {
@@ -310,9 +374,11 @@ input {
     &__container {
         display: flex;
         justify-content: flex-end;
-
         width: 100%;
         height: 100%;
+        @include respond-to($medium) {
+            justify-content: flex-start;
+        }
     }
 
     &__content {
@@ -322,6 +388,9 @@ input {
         max-width: 516px;
         width: 100%;
         margin-top: 220px;
+        @include respond-to($medium) {
+            margin-top: 0;
+        }
 
         &-title-1 {
             font-size: 36px;
@@ -329,10 +398,22 @@ input {
             color: #b7b7b7;
             line-height: 1.3;
             margin-bottom: 38px;
+            @include respond-to($medium) {
+                font-size: 32px;
+            }
+            @include respond-to($tablet) {
+                font-size: 20px;
+                margin-bottom: 22px;
+                margin-left: 34px;
+            }
         }
 
         .hero__content-btn {
             margin: 0 0 60px;
+            @include respond-to($medium) {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
         }
 
         &-title-2 {
@@ -341,8 +422,27 @@ input {
             color: #e7e7e7;
             margin-top: 20px;
             line-height: 1.6;
+            @include respond-to($medium) {
+                font-size: 36px;
+                margin-top: 0;
+            }
+            @include respond-to($tablet) {
+                font-size: 25px;
+                margin-left: 34px;
+            }
         }
 
+        .btn-orange {
+            @include respond-to($tablet) {
+                font-size: 21px;
+                max-width: 230px ;
+                height: 55px ;
+                border-radius: 10px;
+                margin-left: 34px;
+                margin-bottom: 23px;
+                margin-top: 0;
+            }
+        }
     }
 }
 
@@ -351,6 +451,16 @@ input {
     position: relative;
     display: flex;
     align-items: center;
+    @include respond-to($large) {
+        height: 800px;
+    }
+    @include respond-to($medium) {
+        height: auto;
+        padding: 75px 0;
+    }
+    @include respond-to($tablet) {
+        padding: 63px 0 20px;
+    }
 
     &:before {
         content: '';
@@ -364,6 +474,8 @@ input {
         left: 0;
         right: 0;
         bottom: 0;
+
+
     }
 
     .row {
@@ -376,6 +488,32 @@ input {
         justify-content: center;
         align-items: center;
         width: 100%;
+        @include respond-to($tablet) {
+            display: none;
+        }
+    }
+
+    &__mobile-block {
+        display: none;
+        @include respond-to($tablet) {
+            display: flex;
+            flex-direction: column;
+        }
+        .about__title {
+            font-size: 16px;
+            color: #f0551a;
+            text-transform: uppercase;
+            font-family: 'Micra';
+            margin-bottom: 30px;
+            padding: 0 30px;
+            @include respond-to($tablet) {
+                margin-bottom: 18px;
+            }
+        }
+
+        img {
+            margin-bottom: 60px;
+        }
     }
 }
 
@@ -385,6 +523,12 @@ input {
     display: flex;
     align-items: center;
     padding: 75px 0 164px;
+    @include respond-to($large) {
+        padding: 50px 0 100px;
+    }
+    @include respond-to($medium) {
+        padding-bottom: 430px;
+    }
 
     &:before {
         content: '';
@@ -398,6 +542,22 @@ input {
         left: 0;
         right: 0;
         bottom: 0;
+        @include respond-to($large) {
+            background-position: 50% 50%;
+        }
+        @include respond-to($medium) {
+            height: 430px;
+            top: initial;
+            background: url('../img/tiger-6.png');
+        }
+        @include respond-to($tablet) {
+            background-size: 590px;
+            background-position: 4% 0;
+            bottom: 23px;
+            z-index: 4;
+        }
+
+
     }
 
     .row {
@@ -416,6 +576,16 @@ input {
             text-align: left;
             color: #565656;
             line-height: 1;
+            @include respond-to($large) {
+                font-size: 60px;
+            }
+            @include respond-to($medium) {
+                font-size: 50px;
+            }
+            @include respond-to($tablet) {
+                font-size: 30px;
+                padding: 0 15px;
+            }
         }
         &-sub-title {
             font-size: 50px;
@@ -425,6 +595,19 @@ input {
             margin-bottom: 80px;
             color: #565656;
             line-height: 1;
+            @include respond-to($large) {
+                font-size: 44px;
+                margin-bottom: 50px;
+            }
+            @include respond-to($medium) {
+                font-size: 36px;
+                text-align: left;
+            }
+            @include respond-to($tablet) {
+                font-size: 30px;
+                padding: 0 15px;
+                margin-bottom: 35px;
+            }
         }
 
         &-text {
@@ -433,6 +616,13 @@ input {
             margin-left: 68px;
             margin-bottom: 44px;
             display: inline-block;
+            @include respond-to($large) {
+                margin-bottom: 30px;
+            }
+            @include respond-to($tablet) {
+                margin: 0;
+                padding: 0 15px;
+            }
 
             h4 {
                 font-size: 30px;
@@ -441,6 +631,16 @@ input {
                 margin-bottom: 35px;
                 text-transform: uppercase;
                 font-family: 'Micra';
+                @include respond-to($large) {
+                    font-size: 26px;
+                    margin-bottom: 15px;
+                }
+                @include respond-to($medium) {
+                    font-size: 22px;
+                }
+                @include respond-to($tablet) {
+                    font-size: 16px;
+                }
             }
 
             p {
@@ -450,6 +650,13 @@ input {
                 color: #565656;
                 line-height: 1.2;
                 letter-spacing: -0.4px;
+                @include respond-to($large) {
+                    font-size: 18px;
+                    margin-bottom: 30px;
+                }
+                @include respond-to($medium) {
+                    font-size: 16px;
+                }
             }
         }
 
@@ -461,6 +668,14 @@ input {
             max-width: 740px;
             width: 100%;
             margin: 0 auto;
+            @include respond-to($medium) {
+                display: flex;
+                flex-direction: column;
+            }
+            @include respond-to($tablet) {
+                padding: 44px 25px 44px;
+            }
+
 
             .label {
                 display: inline-block;
@@ -470,6 +685,12 @@ input {
                 transition: height .3s, margin-bottom .3s;
                 float: left;
                 padding: 0 13px;
+                @include respond-to($medium) {
+                    width: 100%;
+                }
+                @include respond-to($tablet) {
+                    padding: 0;
+                }
 
                 &:before {
                     content: '';
@@ -477,10 +698,13 @@ input {
                     width: 100%;
                     height: 100%;
                     position: absolute;
-                    top: 1px;
-                    left: 1px;
-                    z-index: -1;
-                    opacity: .5;
+                    top: 0;
+                    left: 0;
+                    z-index: 0;
+                    opacity: .3;
+                    background-color: #c4c4c4;
+                    border: 1px solid #b5b5b5;
+                    border-radius: 5px ;
                 }
 
                 &.full {
@@ -495,16 +719,24 @@ input {
                     color: #828282;
                     font-size: 20px;
                     padding: 11px 12px;
-                    background: #dfdfdf;
-                    border: 1px solid #dbdbdb;
-                    border-radius: 5px ;
+                    border: none;
+                    background: transparent;
+
+
+                    @include respond-to($tablet) {
+                        font-size: 16px;
+                    }
 
                 }
                 input::placeholder {
                     color: rgba(45, 57, 64, .8);
                 }
             }
-
+            .submit {
+                @include respond-to($tablet) {
+                    font-size: 26px;
+                }
+            }
 
         }
     }
@@ -513,13 +745,26 @@ input {
 
 .properties {
     padding: 60px 0 0;
+    @include respond-to($large) {
+        padding: 50px 0 100px;
+    }
+    @include respond-to($tablet) {
+        padding: 76px 0 130px;
+    }
 
     &__content {
         background: #efac28;
         border-radius: 20px;
         padding: 70px 70px;
         margin-bottom: 200px;
-
+        width: 100%;
+        @include respond-to($large) {
+            padding: 50px 20px 30px;
+            margin-bottom: 0;
+        }
+        @include respond-to($medium) {
+            padding: 32px 25px 50px ;
+        }
         &-title {
             display: flex;
             flex-direction: column;
@@ -530,6 +775,25 @@ input {
                 font-size: 50px;
                 line-height: 1;
                 letter-spacing: -1.5px;
+                @include respond-to($large) {
+                    font-size: 40px;
+                }
+                @include respond-to($medium) {
+                    font-size: 36px;
+                }
+                @include respond-to($tablet) {
+                    font-size: 30px;
+                    margin-bottom: 15px;
+                }
+
+                .small {
+                    display: none;
+                    @include respond-to($medium) {
+                        display: inline-block;
+                    }
+
+                }
+
             }
             h2 {
                 display: inline-block;
@@ -542,11 +806,29 @@ input {
                 letter-spacing: -.6px;
                 margin-top: -16px;
                 margin-bottom: 60px;
+                @include respond-to($large) {
+                    font-size: 60px;
+                    margin-bottom: 40px;
+                }
+                @include respond-to($medium) {
+                    font-size: 36px;
+                    text-align: left;
+                    margin-top: 0;
+                }
+                @include respond-to($tablet) {
+                    font-size: 30px;
+                }
 
                 .small {
                     color: #565656;
                     font-size: 50px;
                     font-weight: 400;
+                    @include respond-to($large) {
+                        font-size: 40px;
+                    }
+                    @include respond-to($medium) {
+                        display: none;
+                    }
                 }
             }
         }
@@ -554,10 +836,29 @@ input {
         &-list {
             display: flex;
             margin: 0 -25px 50px;
+            @include respond-to($xlarge) {
+                margin: 0 0 50px;
+            }
+            @include respond-to($large) {
+                margin: 0 0 30px;
+            }
+            @include respond-to($medium) {
+                flex-direction: column;
+            }
+            @include respond-to($tablet) {
+                margin-bottom: 12px;
+            }
 
             &-item {
                 width: 25%;
                 padding: 0 25px;
+                @include respond-to($xlarge) {
+                    padding: 0 10px;
+                }
+                @include respond-to($medium) {
+                    width: 100%;
+                    padding: 0;
+                }
             }
 
             .item {
@@ -565,6 +866,17 @@ input {
                 border-radius: 10px;
                 padding: 54px 26px 45px;
                 height: 100%;
+                @include respond-to($xlarge) {
+                    padding: 30px 15px 25px;
+                }
+                @include respond-to($medium) {
+                    margin-bottom: 15px;
+                    display: flex;
+                    flex-direction: column;
+                }
+                @include respond-to($tablet) {
+                    padding: 13px 25px;
+                }
 
                 &-title {
                     font-size: 30px;
@@ -573,6 +885,16 @@ input {
                     display: inline-block;
                     margin-bottom: 30px;
                     letter-spacing: -.9px;
+                    @include respond-to($large) {
+                        font-size: 26px;
+                        margin-bottom: 20px;
+                    }
+                    @include respond-to($tablet) {
+                        font-size: 20px;
+                        margin-bottom: 10px;
+                    }
+
+
                 }
 
                 &-text {
@@ -581,6 +903,13 @@ input {
                     display: inline-block;
                     line-height: 1.2;
                     letter-spacing: -.9px;
+                    @include respond-to($large) {
+                        font-size: 18px;
+                    }
+                    @include respond-to($tablet) {
+                        font-size: 16px;
+                        margin-bottom: 7px;
+                    }
 
                     .red {
                         color: #b7292b;
@@ -593,6 +922,9 @@ input {
                     .item-title {
                         position: relative;
                         z-index: 5;
+                        @include respond-to($tablet) {
+                            margin-bottom: 26px;
+                        }
 
                         &:before {
                             content: '';
@@ -604,6 +936,9 @@ input {
                             top: -4px;
                             z-index: -1;
                             background-image: linear-gradient(to top, #a7a7a7 0%, #ffffff 100%);
+                            @include respond-to($tablet) {
+                                height: 45px;
+                            }
                         }
 
                     }
@@ -616,6 +951,29 @@ input {
             display: flex;
             width: 100%;
             justify-content: center;
+            @include respond-to($large) {
+               max-width: 700px;
+                margin: 0 auto;
+            }
+            @include respond-to($tablet) {
+                height: 135px;
+                overflow: hidden;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
+
+
+            }
+
+            img {
+
+                @include respond-to($tablet) {
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+            }
+
         }
     }
 
@@ -629,23 +987,34 @@ input {
     height: 1080px;
     position: relative;
     display: flex;
+    @include respond-to($large) {
+        height: 980px;
+        padding: 100px 0 50px;
+    }
+    @include respond-to($medium) {
+        padding-top: 446px;
+        height: auto;
+    }
 
     &:before {
         content: '';
         position: absolute;
         width: 100%;
         height: 100%;
-        background: url('../img/tiger-2.jpg') 100% 100% no-repeat;
+        background: url('../img/tiger-2.jpg') 0% 0% no-repeat;
         -webkit-background-size: contain;
         background-size: contain;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
+        @include respond-to($medium) {
+            background-size: 1200px;
+        }
     }
 
     .row {
-        position: relative;
+        //position: relative;
         z-index: 1;
         height: 100%;
     }
@@ -667,11 +1036,36 @@ input {
             margin-bottom: 24px;
             line-height: 1;
             letter-spacing: -.9px;
+            @include respond-to($large) {
+                font-size: 40px;
+            }
+            @include respond-to($medium) {
+                position: absolute;
+                top: 160px;
+                left: 34px;
+                margin-bottom: 0;
+
+            }
+            @include respond-to($tablet) {
+                display: inline-block;
+                font-size: 30px;
+            }
 
             .orange {
                 font-size: 70px;
                 font-weight: 900;
                 color: #f0551a;
+                @include respond-to($large) {
+                    font-size: 60px;
+                }
+                @include respond-to($medium) {
+                    position: relative;
+                    top: 120px;
+                    margin-left: -50px;
+                }
+                @include respond-to($tablet) {
+                    font-size: 30px;
+                }
             }
         }
 
@@ -682,8 +1076,25 @@ input {
             margin-bottom: 50px;
             line-height: 1.3;
             letter-spacing: -.9px;
+            @include respond-to($large) {
+                font-size: 32px;
+            }
+            @include respond-to($medium) {
+                padding: 0 15px;
+            }
+            @include respond-to($tablet) {
+                font-size: 25px;
+                padding: 0 10px 0 25px;
+                margin-bottom: 22px;
+            }
+
             .white {
                 color: #ffffff;
+                @include respond-to($tablet) {
+                    display: inline-block;
+                    width: 100%;
+                }
+
             }
         }
 
@@ -694,6 +1105,19 @@ input {
             line-height: 1.3;
             margin-bottom: 96px;
             letter-spacing: -.4px;
+            @include respond-to($large) {
+                font-size: 18px;
+                margin-bottom: 50px;
+            }
+            @include respond-to($medium) {
+                padding: 0 15px;
+            }
+            @include respond-to($tablet) {
+                font-size: 16px;
+                padding: 0 25px;
+                margin-bottom: 20px;
+            }
+
             .white {
                 color: #ffffff;
             }
@@ -702,13 +1126,24 @@ input {
         &-text-2 {
             position: relative;
             max-width: 646px;
-            padding: 90px 20px 90px 50px;
+            padding: 90px 20px 22px 50px;
             display: flex;
             font-size: 30px;
             color: #f0551a;
             margin-left: 38px;
             letter-spacing: -.9px;
             line-height: 1.3;
+            @include respond-to($large) {
+                font-size: 26px;
+            }
+            @include respond-to($medium) {
+                margin: 0 auto;
+            }
+            @include respond-to($tablet) {
+                font-size: 18px;
+                padding: 26px 16px 22px 24px;
+            }
+
             &:before {
                 content: '';
                 position: absolute;
@@ -730,38 +1165,82 @@ input {
                 border-radius: 15px;
             }
 
-
         }
     }
 }
 
 .best  {
     padding: 205px 0;
-
+    overflow: hidden;
+    @include respond-to($large) {
+        padding: 75px 0;
+    }
+    @include respond-to($tablet) {
+        padding: 40px 0;
+    }
     &__content {
         width: 100%;
-
+        @include respond-to($tablet) {
+            padding: 0 15px;
+        }
         &-title {
             text-align: center;
             font-size: 50px;
             color: #525252;
             margin-bottom: 48px;
             letter-spacing: -.9px;
-
+            @include respond-to($medium) {
+                font-size: 40px;
+            }
+            @include respond-to($tablet) {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
         }
 
         &-list {
             display: flex;
             margin: 0 -30px 95px;
+            @include respond-to('(max-width: 1600px)') {
+                margin: 0 0 95px;
+            }
+            @include respond-to($large) {
+                margin-bottom: 50px;
+            }
+            @include respond-to($medium) {
+                flex-wrap: wrap;
+            }
 
             &-item {
                 width: 25%;
                 padding: 0 30px;
+                @include respond-to($xlarge) {
+                    padding: 0 10px;
+                }
+                @include respond-to($medium) {
+                    width: 50%;
+                    margin-bottom: 15px;
+                }
+                @include respond-to($tablet) {
+                    width: 100%;
+                    padding: 0;
+                    margin-bottom: 28px;
+                }
+
+                &:last-child {
+                    @include respond-to($tablet) {
+                        margin-bottom:0 ;
+                    }
+                }
 
                 .item {
                     border-radius: 20px;
                     padding: 25px 18px;
                     display: inline-block;
+                    height: 100%;
+                    @include respond-to($tablet) {
+                        padding: 25px 18px 35px;
+                    }
 
                     &-photo {
                         position: relative;
@@ -770,6 +1249,13 @@ input {
                         padding-bottom: 68%;
                         overflow: hidden;
                         margin-bottom: 30px;
+                        @include respond-to($medium) {
+                            padding-bottom: 50%;
+                        }
+                        @include respond-to($tablet) {
+                            padding-bottom: 75%;
+                            margin-bottom: 12px;
+                        }
 
                         img {
                             display: inline-block;
@@ -790,6 +1276,9 @@ input {
                         text-align: center;
                         color: #525252;
                         margin-bottom: 34px;
+                        @include respond-to($xlarge) {
+                            font-size: 26px;
+                        }
                     }
 
                     &-text {
@@ -798,6 +1287,15 @@ input {
                         color: #525252;
                         line-height: 1.2;
                         letter-spacing: -.6px;
+                        @include respond-to($xlarge) {
+                            font-size: 20px;
+                        }
+                        @include respond-to($medium) {
+                            font-size: 18px;
+                        }
+                        @include respond-to($tablet) {
+                            font-size: 16px;
+                        }
                     }
 
 
@@ -814,21 +1312,11 @@ input {
         }
 
         &-btn {
-            font-size: 40px;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 104px;
-            width: 100%;
-            max-width: 436px;
-            border-radius: 20px;
-            background-image: linear-gradient(0deg, #b7292b 0%, #efac28 100%);
-            margin: 0 auto;
 
-            &:hover {
-                color: #fff;
-                background-image: linear-gradient(0deg, #efac28 0%, #b7292b 100%);
+            @include respond-to($tablet) {
+                font-size: 27px;
+                max-width: 290px;
+                height: 70px;
             }
         }
     }
@@ -839,7 +1327,12 @@ input {
     position: relative;
     display: flex;
     padding: 62px 0;
-
+    @include respond-to($large) {
+        height: auto;
+    }
+    @include respond-to($tablet) {
+        padding: 38px 0;
+    }
     &:before {
         content: '';
         position: absolute;
@@ -862,7 +1355,6 @@ input {
         flex-direction: column;
     }
 
-
     &__title {
         font-size: 50px;
         color: #b7b7b7;
@@ -870,15 +1362,41 @@ input {
         letter-spacing: -1.6px;
         text-align: center;
         margin-bottom: 52px;
+        @include respond-to($large) {
+            font-size: 40px;
+            margin-bottom: 35px;
+        }
+        @include respond-to($medium) {
+            font-size: 36px;
+        }
+        @include respond-to($tablet) {
+            font-size: 30px;
+            margin-bottom: 22px;
+        }
     }
 
     &__list {
         display: flex;
         margin-bottom: 65px;
+        @include respond-to($large) {
+            margin-bottom: 45px;
+        }
+        @include respond-to($tablet) {
+            flex-direction: column;
+            margin-bottom: 58px;
+        }
 
         &-item {
             width: 33.33333%;
             padding: 0 57px;
+            @include respond-to($large) {
+                padding: 0 15px;
+            }
+            @include respond-to($tablet) {
+                width: 100%;
+                padding: 0 10px;
+                margin-bottom: 16px;
+            }
 
             .title {
                 font-size: 23px;
@@ -887,6 +1405,15 @@ input {
                 color: #f0551a;
                 margin-bottom: 38px;
                 font-family: 'Micra';
+                @include respond-to($large) {
+                    margin-bottom: 20px;
+                }
+                @include respond-to($tablet) {
+                    //letter-spacing: 3px;
+                    margin-bottom: 13px;
+                    line-height: 1.2;
+
+                }
             }
 
             p {
@@ -895,13 +1422,11 @@ input {
                 font-weight: 400;
                 line-height: 1.2;
                 letter-spacing: -.6px;
+
             }
 
         }
 
-        .item {
-
-        }
 
     }
 
@@ -913,7 +1438,11 @@ input {
         width: 100%;
         margin: 0 auto;
         background-color:#ededed;
-
+        @include respond-to($tablet) {
+            display: flex;
+            flex-direction: column;
+            padding: 40px 25px 50px;
+        }
         .label {
             display: inline-block;
             width: 50%;
@@ -922,6 +1451,10 @@ input {
             transition: height .3s, margin-bottom .3s;
             float: left;
             padding: 0 13px;
+            @include respond-to($tablet) {
+                width: 100%;
+                padding: 0;
+            }
 
             &:before {
                 content: '';
@@ -929,12 +1462,14 @@ input {
                 width: 100%;
                 height: 100%;
                 position: absolute;
-                top: 1px;
-                left: 1px;
-                z-index: -1;
-                opacity: .5;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                opacity: .3;
+                background-color: #c4c4c4;
+                border: 1px solid #b5b5b5;
+                border-radius: 5px ;
             }
-
             input {
                 display: inline-block;
                 width: 100%;
@@ -943,9 +1478,13 @@ input {
                 color: #828282;
                 font-size: 20px;
                 padding: 11px 12px;
-                background: #dfdfdf;
-                border: 1px solid #dbdbdb;
+                background-color: transparent;
+                border: none;
                 border-radius: 5px ;
+                @include respond-to($tablet) {
+                    font-size: 16px;
+                }
+
 
             }
             input::placeholder {
@@ -954,12 +1493,24 @@ input {
         }
 
         .submit {
+            @include respond-to($tablet) {
+                font-size: 26px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                border-radius: 10px;
 
+            }
         }
     }
 }
 
 .slogan {
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 950px;
+    padding-top: 188px;
     background: rgba(255,255,255,1);
     background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(0,0,0,1)));
@@ -968,11 +1519,15 @@ input {
     background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
     background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 950px;
-    padding-top: 188px;
+    @include respond-to($large) {
+        height: auto;
+        padding-top: 0;
+    }
+    @include respond-to($tablet) {
+        padding-bottom: 706px;
+        padding-top: 30px;
+
+    }
 
     &:before {
         content: '';
@@ -986,23 +1541,64 @@ input {
         left: 0;
         right: 0;
         bottom: 0;
+        @include respond-to('(max-width: 1800px)') {
+            -webkit-background-size: 50%;
+            background-size: 50%;
+        }
+        @include respond-to($large) {
+            width: 100%;
+
+        }
+        @include respond-to($tablet) {
+            height: calc(100% - 180px);
+            -webkit-background-size: 200%;
+            background-size: 200%;
+            background-position: 73% 100%;
+        }
+    }
+
+    &:after {
+        content: '';
+        width: 100%;
+        height: 180px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+        background: #000;
+        display: none;
+
+        @include respond-to($tablet) {
+            font-size: 30px;
+            display: inline-block;
+        }
     }
 
     .row {
-        position: relative;
         z-index: 1;
         height: 100%;
     }
 
     &__content {
         margin-left: 206px;
-
+        @include respond-to($large) {
+            margin-left: 0;
+            padding: 42px 0px 15px 15px;
+        }
         &-title {
             font-size: 50px;
             color: #565656;
             letter-spacing: -1.4px;
             line-height: 1;
             margin-bottom: 5px;
+            @include respond-to($large) {
+                font-size: 40px;
+            }
+            @include respond-to($tablet) {
+                font-size: 30px;
+                line-height: 1.4;
+            }
         }
 
         &-sub-title {
@@ -1011,9 +1607,32 @@ input {
             letter-spacing: -1.4px;
             line-height: 1;
             margin-bottom: 90px;
-
+            @include respond-to($large) {
+                font-size: 60px;
+            }
+            @include respond-to($tablet) {
+                font-size: 30px;
+                margin-bottom: 0;
+            }
             .white {
                 color: #fff;
+                @include respond-to($tablet) {
+                    color: #f0551a;
+                }
+            }
+        }
+
+        .btn-up {
+            @include respond-to($tablet) {
+                position: absolute;
+                bottom: 60px;
+                left: 0;
+                right: 0;
+                margin: auto;
+                font-size: 27px;
+                height: 70px;
+                max-width: 290px;
+                border-radius: 10px;
             }
         }
     }
@@ -1021,12 +1640,17 @@ input {
 
 .footer {
     background: #050505;
-
     padding: 30px 0;
-
+    @include respond-to($tablet) {
+        padding: 25px 0;
+    }
     &__content {
         display: flex;
         width: 100%;
+        @include respond-to($tablet) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
 
         &-left {
             width: 50%;
@@ -1034,16 +1658,27 @@ input {
             flex-direction: column;
             align-items: flex-end;
             padding: 0 30px;
+            @include respond-to($tablet) {
+                padding: 0 ;
+                width: 100%;
+                max-width: 250px;
+            }
 
             .content {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                @include respond-to($tablet) {
+                    width: 100%;
+                }
             }
 
             .logo {
                 margin-top: 18px;
                 margin-bottom: 24px;
+                @include respond-to($tablet) {
+                    width: 100%;
+                }
             }
 
             .btn-about {
@@ -1053,7 +1688,9 @@ input {
                 letter-spacing: -.9px;
                 margin-right: 25px;
                 line-height: 1.2;
-
+                @include respond-to($tablet) {
+                    display: none;
+                }
                 &:before {
                     content: '';
                     height: 2px;
@@ -1083,6 +1720,12 @@ input {
             flex-direction: column;
             align-items: flex-start;
             padding: 0 22px;
+            @include respond-to($tablet) {
+                padding: 0 ;
+                width: 100%;
+                max-width: 250px;
+            }
+
             .content {
                 display: flex;
                 flex-direction: column;
@@ -1096,6 +1739,9 @@ input {
                     line-height: 1;
                     padding-bottom: 5px;
                     letter-spacing: -.9px;
+                    @include respond-to($tablet) {
+                        padding-bottom: 3px;
+                    }
                 }
 
                 a {
@@ -1159,6 +1805,13 @@ input {
     position: relative;
     transition: color .3s;
     z-index: 2;
+    @include respond-to($large) {
+        height: 75px;
+        max-width: 320px;
+        font-size: 32px;
+
+    }
+
     &:before {
         content: '';
         display: inline-block;
