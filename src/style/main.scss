@@ -72,7 +72,7 @@ body {
         flex-flow: row wrap;
         padding: 0 10px;
 
-        @include respond-to($large) {
+        @include respond-to($medium) {
            max-width: 700px ;
         }
     }
@@ -356,13 +356,32 @@ input {
         bottom: 0;
         right: -168px;
         z-index: 0;
+        @include respond-to('(max-width: 1800px)') {
+            max-width: 640px;
+        }
         @include respond-to($large) {
             max-width: 500px;
         }
         @include respond-to($medium) {
 
         }
+        @include respond-to($tablet) {
+            left: 0;
+            right: 0;
+            top: -68px;
+            margin: auto;
+        }
 
+        img {
+            @include respond-to($tablet) {
+                left: 0;
+                right: 0;
+                top: 0;
+                transform: rotate(37.5deg);
+                max-width: 310px;
+                margin: auto;
+            }
+        }
     }
 
     .row {
@@ -379,6 +398,10 @@ input {
         @include respond-to($medium) {
             justify-content: flex-start;
         }
+        @include respond-to($tablet) {
+            justify-content: center;
+        }
+
     }
 
     &__content {
@@ -390,6 +413,9 @@ input {
         margin-top: 220px;
         @include respond-to($medium) {
             margin-top: 0;
+        }
+        @include respond-to($tablet) {
+            max-width: 450px;
         }
 
         &-title-1 {
@@ -498,6 +524,7 @@ input {
         @include respond-to($tablet) {
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
         .about__title {
             font-size: 16px;
@@ -513,6 +540,8 @@ input {
 
         img {
             margin-bottom: 60px;
+            width: 100%;
+            max-width: 400px;
         }
     }
 }
@@ -548,15 +577,11 @@ input {
         @include respond-to($medium) {
             height: 430px;
             top: initial;
-            background: url('../img/tiger-6.png');
-        }
-        @include respond-to($tablet) {
-            background-size: 590px;
-            background-position: 4% 0;
-            bottom: 23px;
+            background: url('../img/tiger-6.png')  100% 100% no-repeat;
             z-index: 4;
+            background-size: 320px;
+            bottom: 23px;
         }
-
 
     }
 
@@ -663,7 +688,9 @@ input {
         &-form {
             background-color:#ededed;
             border-radius: 15px;
-            display: inline-block;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
             padding: 50px 58px;
             max-width: 740px;
             width: 100%;
@@ -671,6 +698,7 @@ input {
             @include respond-to($medium) {
                 display: flex;
                 flex-direction: column;
+
             }
             @include respond-to($tablet) {
                 padding: 44px 25px 44px;
@@ -679,17 +707,16 @@ input {
 
             .label {
                 display: inline-block;
-                width: 50%;
+                width: calc(50% - 26px);
                 position: relative;
-                margin-bottom: 30px;
                 transition: height .3s, margin-bottom .3s;
                 float: left;
-                padding: 0 13px;
+                margin: 0 0 30px;
                 @include respond-to($medium) {
                     width: 100%;
                 }
                 @include respond-to($tablet) {
-                    padding: 0;
+                    margin: 0 0 30px;
                 }
 
                 &:before {
@@ -1225,6 +1252,8 @@ input {
                     width: 100%;
                     padding: 0;
                     margin-bottom: 28px;
+                    display: flex;
+                    justify-content: center;
                 }
 
                 &:last-child {
@@ -1432,7 +1461,9 @@ input {
 
     &__form {
         border-radius: 15px;
-        display: inline-block;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
         padding: 50px 70px;
         max-width: 740px;
         width: 100%;
@@ -1445,15 +1476,14 @@ input {
         }
         .label {
             display: inline-block;
-            width: 50%;
+            width: calc(50% - 26px);
             position: relative;
-            margin-bottom: 30px;
             transition: height .3s, margin-bottom .3s;
             float: left;
-            padding: 0 13px;
+            margin: 0 0 30px;
             @include respond-to($tablet) {
                 width: 100%;
-                padding: 0;
+                margin: 0 0 30px;
             }
 
             &:before {
@@ -1519,13 +1549,13 @@ input {
     background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
     background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=0 );
-    @include respond-to($large) {
+    @include respond-to($medium) {
         height: auto;
-        padding-top: 0;
-    }
-    @include respond-to($tablet) {
         padding-bottom: 706px;
         padding-top: 30px;
+    }
+    @include respond-to($tablet) {
+
 
     }
 
@@ -1549,10 +1579,16 @@ input {
             width: 100%;
 
         }
+        @include respond-to($medium) {
+            height: calc(100% - 180px);
+            -webkit-background-size: 73%;
+            background-size: 73%;
+            background-position: 100% 100%;
+        }
         @include respond-to($tablet) {
             height: calc(100% - 180px);
-            -webkit-background-size: 200%;
-            background-size: 200%;
+            -webkit-background-size: 700px;
+            background-size: 700px;
             background-position: 73% 100%;
         }
     }
@@ -1569,7 +1605,7 @@ input {
         background: #000;
         display: none;
 
-        @include respond-to($tablet) {
+        @include respond-to($medium) {
             font-size: 30px;
             display: inline-block;
         }
